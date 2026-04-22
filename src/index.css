@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+
+
+.layout {
+  @apply max-w-[1240px] mx-auto px-6 py-6;
+}
+
+
 /* Custom CSS Variables */
 :root {
   --font-sans: 'Inter', system-ui, sans-serif;

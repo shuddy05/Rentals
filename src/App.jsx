@@ -1,16 +1,17 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./Pages/Login";
-
-
+import Register from "./Pages/Register";
+import ForgotPassword from "./Pages/ForgetPassword";
 const App = () => {
   return (
- <>
- 
- <Login />
- </>
- 
-     
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 

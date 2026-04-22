@@ -1,180 +1,99 @@
-import React from 'react'
-import { useState } from "react";
+import React, { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
-import { Link } from 'react-router-dom';
-
+import { Link } from "react-router-dom";
+import image1 from "../assets/images/log1.png";
+import logo from "../assets/images/logo.png";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setLoading(true);
-    setTimeout(() => setLoading(false), 2000);
-  };
 
   return (
-    <div className="flex h-screen w-screen overflow-hidden font-['DM_Sans',sans-serif]">
-
-      {/* ── LEFT PANEL ── */}
-      <div className="relative flex flex-col justify-center w-full md:w-1/2 bg-[#0d0d0d] px-10 md:px-16 lg:px-24 py-12 z-10">
-
-        {/* Grain overlay */}
-        <div
-          className="pointer-events-none absolute inset-0 opacity-[0.035]"
-          style={{
-            backgroundImage:
-              "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
-            backgroundSize: "150px",
-          }}
-        />
-
-        {/* Mobile logo */}
-        <div className="flex md:hidden items-center gap-2 mb-10">
-          <div className="w-8 h-8 bg-[#7c5cfc] rounded-lg flex items-center justify-center">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="white">
-              <path d="M3 9.5L12 3l9 6.5V21H3V9.5z" />
-            </svg>
-          </div>
-          <span className="text-white font-semibold text-lg tracking-tight">Estatery</span>
-        </div>
-
-        {/* Heading */}
-        <div className="mb-10 animate-[fadeUp_0.5s_ease_forwards] opacity-0" style={{ animationDelay: "0.1s" }}>
-          <p className="text-gray-400 text-sm mb-2 tracking-wide">
+    <main className="min-h-screen bg-[#f5f5e8] flex items-center justify-center px-6 py-12">
+      <div className="w-full max-w-5xl flex flex-col-reverse md:flex-row items-center gap-12">
+        {/* LEFT — Form */}
+        <div className="w-full md:w-1/2">
+          <h1 className="text-[32px] font-semibold text-black mb-1">Login</h1>
+          <p className="text-gray-500 text-[15px] mb-6">
             Enter your details to sign in to your account.
           </p>
-          <h1 className="text-white text-3xl font-bold tracking-tight leading-snug">
-            Welcome back
-          </h1>
-        </div>
 
-        {/* Form */}
-        <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-
-          {/* Email */}
-          <div className="flex flex-col gap-1.5 animate-[fadeUp_0.5s_ease_forwards] opacity-0" style={{ animationDelay: "0.2s" }}>
-            <label className="text-gray-400 text-xs font-medium tracking-widest uppercase">
-              Email <span className="text-[#7c5cfc]">*</span>
-            </label>
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter email"
-              required
-              className="w-full bg-white text-gray-800 placeholder-gray-400 rounded-xl px-5 py-4 text-sm outline-none focus:ring-2 focus:ring-[#7c5cfc] transition-all"
-            />
-          </div>
-
-          {/* Password */}
-          <div className="flex flex-col gap-1.5 animate-[fadeUp_0.5s_ease_forwards] opacity-0" style={{ animationDelay: "0.3s" }}>
-            <label className="text-gray-400 text-xs font-medium tracking-widest uppercase">
-              Password <span className="text-[#7c5cfc]">*</span>
-            </label>
-            <div className="relative">
+          <div className="space-y-4">
+            {/* Email */}
+            <div className="flex flex-col gap-1">
+              <label className="text-[14px] text-gray-700" htmlFor="email">
+                Email<span className="text-blue-600">*</span>
+              </label>
               <input
-                type={showPassword ? "text" : "password"}
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="Enter your password"
-                required
-                className="w-full bg-white text-gray-800 placeholder-gray-400 rounded-xl px-5 py-4 pr-12 text-sm outline-none focus:ring-2 focus:ring-[#7c5cfc] transition-all"
+                id="email"
+                type="email"
+                placeholder="Enter email"
+                className="w-full h-12 px-4 border border-gray-300 bg-white rounded-xl text-sm outline-none focus:border-blue-500"
               />
-              <button
-                type="button"
-                onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
-              >
-                {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
-              </button>
+            </div>
+
+            {/* Password */}
+            <div className="flex flex-col gap-1">
+              <label className="text-[14px] text-gray-700" htmlFor="password">
+                Password<span className="text-blue-600">*</span>
+              </label>
+              <div className="relative">
+                <input
+                  id="password"
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Enter your password"
+                  className="w-full h-12 px-4 pr-11 border border-gray-300 bg-white rounded-xl text-sm outline-none focus:border-blue-500"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400"
+                >
+                  {showPassword ? <EyeOff size={17} /> : <Eye size={17} />}
+                </button>
+              </div>
+            </div>
+
+            {/* Forgot password */}
+            <div>
+              <Link to="/forgot-password" className="text-blue-600 text-[13px]">
+                Forget password?
+              </Link>
             </div>
           </div>
 
-          {/* Forgot password */}
-          <div className="animate-[fadeUp_0.5s_ease_forwards] opacity-0" style={{ animationDelay: "0.35s" }}>
-            <Link to="/forgot-password" className="text-[#7c5cfc] text-sm hover:text-[#9b82fd] transition-colors">
-              Forget password?
-            </Link>
-          </div>
-
-          {/* Submit */}
-          <button
-            type="submit"
-            disabled={loading}
-            className="animate-[fadeUp_0.5s_ease_forwards] opacity-0 mt-2 w-full bg-[#7c5cfc] hover:bg-[#6b4ef0] active:scale-[0.98] text-white font-semibold text-sm py-4 rounded-xl transition-all duration-200 disabled:opacity-70 flex items-center justify-center gap-2"
-            style={{ animationDelay: "0.4s" }}
-          >
-            {loading ? (
-              <>
-                <svg className="animate-spin h-4 w-4 text-white" viewBox="0 0 24 24" fill="none">
-                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
-                </svg>
-                Signing in...
-              </>
-            ) : (
-              "Login"
-            )}
+          {/* Login button */}
+          <button className="mt-6 w-full h-12 bg-blue-600 hover:bg-blue-700 text-white text-[15px] font-medium rounded-xl">
+            Login
           </button>
-        </form>
 
-        {/* Sign up link */}
-        <p className="mt-8 text-center text-gray-500 text-sm animate-[fadeUp_0.5s_ease_forwards] opacity-0" style={{ animationDelay: "0.5s" }}>
-          Don&apos;t have an account?{" "}
-          <Link to="/register" className="text-[#7c5cfc] font-semibold hover:text-[#9b82fd] transition-colors">
-            Sign Up
-          </Link>
-        </p>
-      </div>
-
-      {/* ── RIGHT PANEL ── */}
-      <div className="hidden md:block relative w-1/2 overflow-hidden">
-        <img
-          src="https://images.unsplash.com/photo-1600210492493-0946911123ea?w=1200&q=85"
-          alt="Luxury interior"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-black/30" />
-
-        {/* Branding */}
-        <div className="absolute top-8 right-8 flex items-center gap-2.5">
-          <div className="w-9 h-9 bg-[#7c5cfc] rounded-xl flex items-center justify-center shadow-lg">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
-              <path d="M3 9.5L12 3l9 6.5V21H3V9.5z" />
-            </svg>
-          </div>
-          <span className="text-white font-bold text-xl tracking-tight drop-shadow">Estatery</span>
+          {/* Sign up */}
+          <p className="mt-4 text-center text-gray-500 text-[14px]">
+            Don't have an account?{" "}
+            <Link to="/register" className="text-blue-600 font-medium">
+              Sign Up
+            </Link>
+          </p>
         </div>
 
-        {/* Bottom glass card */}
-        <div className="absolute bottom-8 left-8 right-8">
-          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-5">
-            <p className="text-white font-semibold text-lg leading-snug">
-              Find the perfect home <br />
-              <span className="text-[#b8a4ff]">that fits your lifestyle.</span>
-            </p>
-            <p className="text-white/60 text-sm mt-1">Thousands of listings across Nigeria.</p>
+        {/* RIGHT — Image card */}
+        <div className="w-full md:w-1/2 relative rounded-2xl overflow-hidden shadow-md">
+          <img
+            src={image1}
+            alt="Interior"
+            className="w-full h-full object-cover rounded-2xl"
+          />
+
+          {/* Estatery logo overlay */}
+          <div className="absolute top-4 right-4 flex items-center gap-2 bg-white/80 backdrop-blur-sm px-3 py-1.5 rounded-xl shadow">
+            <img src={logo} alt="Estatery" className="w-5 h-5 object-contain" />
+            <span className="text-gray-800 font-semibold text-sm">
+              Estatery
+            </span>
           </div>
         </div>
       </div>
-
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap');
-        @keyframes fadeUp {
-          from { opacity: 0; transform: translateY(18px); }
-          to   { opacity: 1; transform: translateY(0); }
-        }
-      `}</style>
-    </div>
+    </main>
   );
-}
+};
 
-export default Login
-
-
-
-
+export default Login;

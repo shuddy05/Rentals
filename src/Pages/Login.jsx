@@ -8,8 +8,8 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <main className="min-h-screen bg-[#f5f5e8] flex items-center justify-center px-6 py-12">
-      <div className="w-full max-w-5xl flex flex-col-reverse md:flex-row items-center gap-12">
+    <main className=" bg-[#f5f5e8] h-screen flex items-center ">
+      <div className=" layout flex flex-col md:flex-row items-start justify-between gap-12">
         {/* LEFT — Form */}
         <div className="w-full md:w-1/2">
           <h1 className="text-[32px] font-semibold text-black mb-1">Login</h1>
@@ -76,7 +76,7 @@ const Login = () => {
         </div>
 
         {/* RIGHT — Image card */}
-        <div className="w-full md:w-1/2 relative rounded-2xl overflow-hidden shadow-md">
+        <div className="w-full md:w-1/2  rounded-2xl overflow-hidden shadow-md">
           <img
             src={image1}
             alt="Interior"
@@ -84,12 +84,12 @@ const Login = () => {
           />
 
           {/* Estatery logo overlay */}
-          <div className="absolute top-4 right-4 flex items-center gap-2 bg-white/80 backdrop-blur-sm px-3 py-1.5 rounded-xl shadow">
+          {/* <div className="absolute top-4 right-4 flex items-center gap-2 bg-white/80 backdrop-blur-sm px-3 py-1.5 rounded-xl shadow">
             <img src={logo} alt="Estatery" className="w-5 h-5 object-contain" />
             <span className="text-gray-800 font-semibold text-sm">
               Estatery
             </span>
-          </div>
+          </div> */}
         </div>
       </div>
     </main>

@@ -8,35 +8,20 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <main className=" bg-[#f5f5e8] h-screen flex items-center ">
-      <div className=" layout flex flex-col md:flex-row items-start justify-between gap-12">
-        {/* LEFT — Form */}
-        <div className="w-full md:w-1/2">
-          <h1 className="text-[32px] font-semibold text-black mb-1">Login</h1>
-          <p className="text-gray-500 text-[15px] mb-6">
-            Enter your details to sign in to your account.
-          </p>
+    <main className=" bg-[#f5f5e8] h-screen  ">
+      <div className=" layout  flex flex-col md:flex-row justify-between items-center ">
+        <div className=" w-full md:max-w-113.25 md:max-h-149.5 ">
 
-          <div className="space-y-4">
-            {/* Email */}
-            <div className="flex flex-col gap-1">
-              <label className="text-[14px] text-gray-700" htmlFor="email">
-                Email<span className="text-blue-600">*</span>
-              </label>
-              <input
-                id="email"
-                type="email"
-                placeholder="Enter email"
-                className="w-full h-12 px-4 border border-gray-300 bg-white rounded-xl text-sm outline-none focus:border-blue-500"
-              />
-            </div>
+          <h1 className="text-[32px] font-bold">Login</h1>
+          <p className="text-[16px] text-gray-500 mb-6">Enter you details to signin your account</p>
 
-            {/* Password */}
-            <div className="flex flex-col gap-1">
-              <label className="text-[14px] text-gray-700" htmlFor="password">
-                Password<span className="text-blue-600">*</span>
-              </label>
-              <div className="relative">
+          <div className="flex flex-col gap-3">
+            <label className="text-[16px]" htmlFor="email"> Email <span className="text-red-500 font-bold text-xl ">*</span></label>
+            <input type="email" name="" id="" placeholder="Enter email" className="w-full h-12 px-4 pr-11 border border-gray-300 bg-white rounded-xl text-sm outline-none focus:border-blue-500  " />
+          </div>
+          <div className="flex flex-col gap-3 ">
+            <label  className="text-[16px]" htmlFor="email"> Password<span className="text-red-500 font-bold text-xl "> *</span> </label>
+            <div className="relative">
                 <input
                   id="password"
                   type={showPassword ? "text" : "password"}
@@ -46,50 +31,38 @@ const Login = () => {
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 cursor-pointer "
                 >
                   {showPassword ? <EyeOff size={17} /> : <Eye size={17} />}
                 </button>
               </div>
-            </div>
-
-            {/* Forgot password */}
-            <div>
-              <Link to="/forgot-password" className="text-blue-600 text-[13px]">
-                Forget password?
-              </Link>
-            </div>
           </div>
+         
+            <div>
+               <Link to="/forgot-password" className="text-blue-600 text-[14px]">
+                 Forget password?
+          </Link>
+           </div>
 
-          {/* Login button */}
-          <button className="mt-6 w-full h-12 bg-blue-600 hover:bg-blue-700 text-white text-[15px] font-medium rounded-xl">
+
+         <button className="mt-[48px] w-full h-12 bg-blue-600 hover:bg-blue-700 text-white text-[15px] font-medium rounded-xl">
             Login
-          </button>
+         </button>
+<Link to="/register" >
 
-          {/* Sign up */}
-          <p className="mt-4 text-center text-gray-500 text-[14px]">
-            Don't have an account?{" "}
-            <Link to="/register" className="text-blue-600 font-medium">
-              Sign Up
-            </Link>
-          </p>
+          <p className="text-gray-600  cursor-pointer text-center mt-[24px]">Don't have account? <span className="text-[#7065F0]" >Sign Up</span></p>
+</Link>
+
         </div>
 
-        {/* RIGHT — Image card */}
-        <div className="w-full md:w-1/2  rounded-2xl overflow-hidden shadow-md">
+  
+
+        <div className="  shadow-md">
           <img
             src={image1}
             alt="Interior"
-            className="w-full h-full object-cover rounded-2xl"
+            className=""
           />
-
-          {/* Estatery logo overlay */}
-          {/* <div className="absolute top-4 right-4 flex items-center gap-2 bg-white/80 backdrop-blur-sm px-3 py-1.5 rounded-xl shadow">
-            <img src={logo} alt="Estatery" className="w-5 h-5 object-contain" />
-            <span className="text-gray-800 font-semibold text-sm">
-              Estatery
-            </span>
-          </div> */}
         </div>
       </div>
     </main>

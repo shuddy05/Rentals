@@ -1,7 +1,8 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./Pages/Login";
-import Register from "./Pages/Register";
+// import Register from "../src/Pages/";
+import Register from "./Pages/Register"
 import ForgotPassword from "./Pages/ForgetPassword";
 const App = () => {
   return (

@@ -1,12 +1,14 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./Pages/Login";
-// import Register from "../src/Pages/";
 import Register from "./Pages/Register"
 import ForgotPassword from "./Pages/ForgetPassword";
+import Home from "./Pages/Home";
 const App = () => {
   return (
+  
     <BrowserRouter>
+     <Home/>
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />

@@ -44,10 +44,12 @@ const Login = () => {
           </Link>
            </div>
 
-
+        <Link to="/home" >
+        
          <button className="mt-[48px] w-full h-12 bg-blue-600 hover:bg-blue-700 text-white text-[15px] font-medium rounded-xl">
             Login
          </button>
+        </Link>
 <Link to="/register" >
 
           <p className="text-gray-600  cursor-pointer text-center mt-[24px]">Don't have account? <span className="text-[#7065F0]" >Sign Up</span></p>

@@ -44,8 +44,8 @@ const DetailedProperties = () => {
             Badagry, Ogun Nigeria
           </p>
         </div>
-        <div className="flex gap-8.5  justify-between">
-          <div className="relative h-64 w-[789px] h-[462px]  rounded-lg   ">
+        <div className="flex flex-col lg:flex-row gap-8.5  justify-between">
+          <div className="relative w-full h-full lg:w-[789px] lg:h-[462px]  rounded-lg   ">
             <button className="absolute top-4 left-4 rounded-full px-4 bg-[#FF7A37] py-2 text-white ">
               For Sale
             </button>
@@ -63,18 +63,26 @@ const DetailedProperties = () => {
             />
           </div>
 
-          <div className="flex flex-col gap-8.5 ">
-            <div className="w-[417px] h-[214px] rounded-lg ">
-              <img src={image2} className="w-full h-full object-cover" alt="" />
+          <div className="flex flex-col gap-8.5  ">
+            <div className="w-full  lg:w-[417px] h-[214px] rounded-lg ">
+              <img
+                src={image2}
+                className="w-full h-full rounded-lg object-cover"
+                alt=""
+              />
             </div>
-            <div className="w-[417px] h-[214px] rounded-lg ">
-              <img src={image3} alt="" className="w-full h-full object-cover" />
+            <div className="w-full lg:w-[417px] h-[214px] rounded-lg ">
+              <img
+                src={image3}
+                alt=""
+                className="w-full rounded-lg h-full object-cover"
+              />
             </div>
           </div>
         </div>
 
-        <div className="flex justify-between mt-5 ">
-          <div className="flex justify-between gap-16 ">
+        <div className="flex flex-col lg:flex-row  justify-between mt-5 ">
+          <div className="grid grid-cols-2  md:grid-cols-5 gap-4 md:gap-16 ">
             <div className="text-[18px] flex flex-col gap-1">
               <h1>Bedrooms</h1>
               <p className="flex items-center gap-2">
@@ -110,7 +118,9 @@ const DetailedProperties = () => {
             </div>
           </div>
           <div>
-            <h1 className="text-[40px] font-bold ">N4,000,000/year</h1>
+            <h1 className="text-[24px] md:text-[40px] font-bold ">
+              N4,000,000/year
+            </h1>
           </div>
         </div>
 
@@ -280,7 +290,7 @@ const DetailedProperties = () => {
         </section>
         <div className="mt-20">
           <h1 className="text-[32px]  mb-5 ">Simple Apartments</h1>
-          <div className="grid grid-cols-3 justify-between gap-[28px] ">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 justify-between gap-[28px] ">
             {properties.slice(0, 3).map((property) => {
               const { id, image, name, location, price, feature, status } =
                 property;
@@ -288,7 +298,7 @@ const DetailedProperties = () => {
               return (
                 <div key={id} className="w-full">
                   <div className="rounded-[10px] border border-[#D9D9D9] bg-white shadow-xl overflow-hidden">
-                    <div className="relative h-64">
+                    <div className="relative ">
                       <button
                         className={`absolute top-4 left-4 rounded-full px-4 py-2 text-white ${
                           status === "For Sale"

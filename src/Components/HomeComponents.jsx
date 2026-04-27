@@ -8,11 +8,11 @@ const HomeComponents = () => {
     <main className="bg-[#f5f5f1]">
       <div className="layout">
         <div className="flex flex-col justify-between gap-20 ">
-          <div className="flex flex-col md:flex-row justify-between gap-8 md:gap-[73px] ">
+          <div className="flex flex-col lg:flex-row justify-between items-center gap-8 lg:gap-[73px] ">
             <img
               src={newimage}
               alt=""
-              className="w-[458px] h-[301px] rounded-2xl object-cover"
+              className="min-w-full md:w-[458px] h-[301px] rounded-2xl object-cover"
             />
             <div className="flex flex-col gap-11 text-center ">
               <div className="flex flex-col gap-2">
@@ -42,13 +42,13 @@ const HomeComponents = () => {
               {" "}
               Why Choose Estatery
             </h1>
-            <div className="grid md:grid-cols-3 justify-center gap-6.75 ">
+            <div className="w-full grid lg:grid-cols-3  gap-6.75 ">
               {reasons.map((reason) => {
                 const { id, icons: Icon, title, text } = reason;
                 return (
                   <div
                     key={id}
-                    className="flex flex-col gap-4 items-center text-center w-[395px] h-[225px] rounded-2xl bg-white shadow-md border border-gray-300 py-[26px] px-[23px] "
+                    className="flex flex-col gap-4 items-center text-center w-full lg:w-[395px] h-[225px] rounded-2xl bg-white shadow-md border border-gray-300 py-[26px] px-[23px] "
                   >
                     <div className="flex items-center justify-center w-16 h-16 rounded-full bg-[#F1F0FE]">
                       <Icon className="w-6 h-6 text-purple-600" />
@@ -69,13 +69,13 @@ const HomeComponents = () => {
               {" "}
               What Our Satisfied Clients Says
             </h1>
-            <div className="grid md:grid-cols-3 justify-center gap-7">
+            <div className="grid lg:grid-cols-3 justify-center gap-7">
               {testimonials.map((testimonial) => {
                 const { id, position, image, title, text, line } = testimonial;
                 return (
                   <div
                     key={id}
-                    className="flex flex-col gap-4   w-[387px]  text-[#403F3F] rounded-[10px] bg-[#EEEDED] shadow-md border border-gray-300 py-[10px] px-[18px] "
+                    className="flex flex-col gap-4   w-full lg:w-[387px]  text-[#403F3F] rounded-[10px] bg-[#EEEDED] shadow-md border border-gray-300 py-[10px] px-[18px] "
                   >
                     <p className="text-[14px] text-[#605E5E]">{text}</p>
                     <img src={line} alt="Line" />

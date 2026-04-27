@@ -8,7 +8,27 @@ import { MdOutlineBedroomChild } from "react-icons/md";
 import { LuBath } from "react-icons/lu";
 import { LuSquareArrowOutUpLeft } from "react-icons/lu";
 import { RiCarWashingLine } from "react-icons/ri";
+import { BsCheckSquareFill } from "react-icons/bs";
+import { FiPhone, FiCalendar, FiClock, FiMapPin } from "react-icons/fi";
+import agentImg from "../assets/images/newpass.jpg"; 
+import propertyImg from "../assets/images/2.jpg"; 
 const DetailedProperties = () => {
+
+    const features = [
+  "Decent Detailed Finishing",
+  "Shower cubicle",
+  "Gated house",
+  "Spacious Fully fitted kitchen",
+  "Fitted Wardrobes",
+  "Bathtub",
+  "Ample Car Park",
+  "Wall mounted Chimney (Extractor)",
+  "Wardrobe",
+  "Good lighting",
+  "Large living area",
+  "Water heater",
+];
+
   return (
     <main>
 <div className="layout">
@@ -79,18 +99,161 @@ const DetailedProperties = () => {
         </h1></div>
 </div>
 
-<section className='flex justify-between gap-[68px] mt-[28px] '>
-    <div className='w-[769px]'>  
-        <div className='flex flex-col gap-2 mb-[35px] '>
-            <h1 className=' text-[22px] font-semibold '>About this property</h1>
-<p className=' text-[18px] font-extralight '>Spacious and well-designed 3-bedroom apartment located in a serene environment. Features modern fittings, ample parking space, and easy access to major roads, schools, and shopping centers.
-</p>
-
+<section className="max-w-7xl mx-auto px-4 py-10">
+      <div className="flex flex-col lg:flex-row gap-8">
+ 
+        {/* ── LEFT COLUMN ── */}
+        <div className="flex-1 flex flex-col gap-6">
+ 
+          {/* About */}
+          <div className="rounded-2xl border border-dashed border-[#7065F0] p-6">
+            <h2 className="text-lg font-bold text-gray-900 mb-3">
+              About this property
+            </h2>
+            <p className="text-gray-600 leading-relaxed text-[15px]">
+              Spacious and well-designed 3-bedroom apartment located in a serene
+              environment. Features modern fittings, ample parking space, and
+              easy access to major roads, schools, and shopping centers.
+            </p>
+          </div>
+ 
+          {/* Property Features */}
+          <div className="rounded-2xl border border-dashed border-[#7065F0] p-6">
+            <h2 className="text-lg font-bold text-gray-900 mb-5">
+              Property Features
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
+              {features.map((feat, i) => (
+                <div key={i} className="flex items-center gap-3">
+                  <BsCheckSquareFill className="text-[#7065F0] w-5 h-5 flex-shrink-0" />
+                  <span className="text-gray-700 text-[15px]">{feat}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+ 
+          {/* Location */}
+          <div className="rounded-2xl border border-dashed border-[#7065F0] p-6">
+            <h2 className="text-lg font-bold text-gray-900 mb-5">Location</h2>
+            <div className="relative w-full h-72 rounded-2xl overflow-hidden border border-gray-200">
+              <iframe
+                title="Property Location"
+                src="https://www.openstreetmap.org/export/embed.html?bbox=2.8%2C6.3%2C3.6%2C6.9&layer=mapnik&marker=6.6%2C3.15"
+                className="w-full h-full border-0"
+                loading="lazy"
+              />
+              {/* Popup card */}
+              <div className="absolute bottom-4 left-4 bg-white rounded-2xl shadow-lg flex items-center gap-3 p-3 max-w-[210px]">
+                <img
+                  src={propertyImg}
+                  alt="Modern Villa"
+                  className="w-14 h-14 rounded-xl object-cover flex-shrink-0"
+                />
+                <div>
+                  <p className="font-semibold text-gray-900 text-sm">Modern Villa</p>
+                  <div className="flex items-center gap-1 mt-1">
+                    <FiMapPin className="text-[#7065F0] w-3 h-3 flex-shrink-0" />
+                    <p className="text-xs text-gray-500">Badagry, Ogun Nigeria</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-
-    </div>
-    <div className=' w-[399px] ' ></div>
-</section>
+ 
+        {/* ── RIGHT COLUMN ── */}
+        <div className="lg:w-[340px] flex flex-col gap-6">
+ 
+          {/* Agent Card */}
+          <div className="rounded-2xl border border-gray-200 bg-white shadow-sm p-6">
+            <h2 className="text-lg font-bold text-gray-900 mb-5">Agent Detail</h2>
+            <div className="flex items-center gap-4 mb-5">
+              <img
+                src={agentImg}
+                alt="Janet Jackson"
+                className="w-14 h-14 rounded-full object-cover"
+              />
+              <div>
+                <p className="font-semibold text-gray-900 text-[15px]">Janet Jackson</p>
+                <p className="text-sm text-gray-500">Real Estate Agent</p>
+              </div>
+            </div>
+            <button className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-[#7065F0] text-white font-semibold text-[15px]">
+              <FiPhone className="w-4 h-4" />
+              Call Agent
+            </button>
+          </div>
+ 
+          {/* Schedule a Tour */}
+          <div className="rounded-2xl border border-gray-200 bg-white shadow-sm p-6">
+            <h2 className="text-lg font-bold text-gray-900 mb-5">Schedule a Tour</h2>
+ 
+            {/* Toggle */}
+            <div className="flex gap-3 mb-5">
+              <button className="flex-1 py-2.5 rounded-xl font-semibold text-sm bg-[#7065F0] text-white">
+                In Person
+              </button>
+              <button className="flex-1 py-2.5 rounded-xl font-semibold text-sm border border-[#7065F0] text-[#7065F0] bg-white">
+                Virtual
+              </button>
+            </div>
+ 
+            <div className="flex flex-col gap-4">
+              {/* Date */}
+              <div className="relative">
+                <input
+                  type="text"
+                  placeholder="dd/mm/yy"
+                  readOnly
+                  className="w-full h-12 px-4 pr-10 rounded-xl border border-gray-200 bg-white text-gray-400 text-sm placeholder-gray-400 focus:outline-none"
+                />
+                <FiCalendar className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
+              </div>
+ 
+              {/* Time */}
+              <div className="relative">
+                <input
+                  type="text"
+                  placeholder="--:-- --"
+                  readOnly
+                  className="w-full h-12 px-4 pr-10 rounded-xl border border-gray-200 bg-white text-gray-400 text-sm placeholder-gray-400 focus:outline-none"
+                />
+                <FiClock className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
+              </div>
+ 
+              {/* Name */}
+              <input
+                type="text"
+                placeholder="Name"
+                readOnly
+                className="w-full h-12 px-4 rounded-xl border border-gray-200 bg-white text-gray-400 text-sm placeholder-gray-400 focus:outline-none"
+              />
+ 
+              {/* Email */}
+              <input
+                type="text"
+                placeholder="Email"
+                readOnly
+                className="w-full h-12 px-4 rounded-xl border border-gray-200 bg-white text-gray-400 text-sm placeholder-gray-400 focus:outline-none"
+              />
+ 
+              {/* Message */}
+              <textarea
+                placeholder="Message"
+                readOnly
+                rows={4}
+                className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-gray-400 text-sm placeholder-gray-400 focus:outline-none resize-none"
+              />
+ 
+              <button className="w-full py-3.5 rounded-xl bg-[#7065F0] text-white font-semibold text-[15px]">
+                Submit Tour Request
+              </button>
+            </div>
+          </div>
+ 
+        </div>
+      </div>
+    </section>
 
 </div>
 

@@ -3,7 +3,7 @@ import { properties } from "../utils/properties";
 import image1 from "../assets/images/1.png";
 import { FaRegHeart } from "react-icons/fa6";
 import { PiBedBold, PiBathtubBold } from "react-icons/pi";
-import { main } from "framer-motion/client";
+
 const FeaturesProperties = () => {
   return (
     <main className="bg-[#F1F0FE]">

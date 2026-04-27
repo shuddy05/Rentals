@@ -1,5 +1,6 @@
 import React from "react";
 import image from "../assets/images/image 489.png";
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
@@ -15,13 +16,15 @@ const HeroSection = () => {
               A great platform to buy, sell, or even rent your properties
               without any commissions.
             </p>
-
-            <button
+  <Link to="/properties" >
+  <button
               type="button"
-              className="text-white text-lg bg-purple-500 rounded-lg py-4 px-8"
+              className="text-white text-lg cursor-pointer bg-purple-500 rounded-lg py-4 px-8"
             >
               Browse Properties
             </button>
+</Link>
+          
           </div>
 
           <div className="grid grid-cols-3 gap-8 mt-16">

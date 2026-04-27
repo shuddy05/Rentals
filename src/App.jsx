@@ -4,6 +4,7 @@ import Login from "./Pages/Login";
 import Register from "./Pages/Register"
 import ForgotPassword from "./Pages/ForgetPassword";
 import Home from "./Pages/Home";
+import Properties from "./Pages/Properties";
 const App = () => {
   return (
   
@@ -12,6 +13,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/home" element={<Home />} />
+        <Route path="/properties" element={<Properties />} />
 
         <Route path="/register" element={<Register />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />

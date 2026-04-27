@@ -9,7 +9,7 @@ const Home = () => {
       <HeroSection />
       <FeaturesProperties />
       <HomeComponents />
-      <DetailedProperties/>
+      {/* <DetailedProperties/> */}
     </main>
   );
 };

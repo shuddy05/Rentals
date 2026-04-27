@@ -8,39 +8,40 @@ const HeroSection = () => {
       <div className="layout grid lg:grid-cols-2 gap-12 items-stretch order-2 lg:order-1 ">
         <div className="flex flex-col justify-between h-full">
           <div>
-            <h1 className="font-bold text-5xl leading-tight mb-6">
+            <h1 className="font-bold text-3xl md:text-5xl leading-tight mb-6">
               Buy, Rent or Sell Your Property Easily
             </h1>
 
-            <p className="text-lg text-gray-500 mb-10">
+            <p className=" text-md md:text-lg text-gray-500 mb-10">
               A great platform to buy, sell, or even rent your properties
               without any commissions.
             </p>
-  <Link to="/properties" >
-  <button
-              type="button"
-              className="text-white text-lg cursor-pointer bg-purple-500 rounded-lg py-4 px-8"
-            >
-              Browse Properties
-            </button>
-</Link>
-          
+            <Link to="/properties">
+              <button
+                type="button"
+                className="text-white text-lg cursor-pointer bg-purple-500 rounded-lg py-4 px-8"
+              >
+                Browse Properties
+              </button>
+            </Link>
           </div>
 
-          <div className="grid grid-cols-3 gap-8 mt-16">
-            <div>
-              <h2 className="text-4xl font-semibold">50K+</h2>
-              <p className="text-[#403F3F] text-lg">Happy Renters</p>
+          <div className="grid grid-cols-3 justify-between text-center gap-8 mt-16 ">
+            <div className="text-c">
+              <h2 className="text-2xl md:text-4xl font-semibold">50K+</h2>
+              <p className="text-[#403F3F] text-sm md:text-lg">Happy Renters</p>
             </div>
 
             <div>
-              <h2 className="text-4xl font-semibold">100K+</h2>
-              <p className="text-[#403F3F] text-lg">Active Users</p>
+              <h2 className="text-2xl md:text-4xl font-semibold">100K+</h2>
+              <p className="text-[#403F3F] text-sm md:text-lg">Active Users</p>
             </div>
 
             <div>
-              <h2 className="text-4xl font-semibold">1K+</h2>
-              <p className="text-[#403F3F] text-lg">Properties Listed</p>
+              <h2 className="text-2xl md:text-4xl font-semibold">1K+</h2>
+              <p className="text-[#403F3F] text-sm md:text-lg">
+                Properties Listed
+              </p>
             </div>
           </div>
         </div>

@@ -9,11 +9,11 @@ const FeaturesProperties = () => {
     <main className="bg-[#F1F0FE]">
       <div className="layout md:flex flex-col gap-11">
         <div className="flex justify-between">
-          <h1 className="text-[32px] ">Featured Properties</h1>
-          <button className="text-[18px] text-white bg-[#7065F0] px-4 py-2 rounded-lg">
+          <h1 className=" text-2xl md:text-[32px] ">Featured Properties</h1>
+          <button className=" mb-3 md:mb-0  text-[14px] md:text-[18px] text-white bg-[#7065F0] px-4 py-2 rounded-lg">
             View All
           </button>
-        </div>
+        </  div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {properties.slice(0, 6).map((property) => {
             const { id, image, name, location, price, feature, status } =

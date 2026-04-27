@@ -8,19 +8,19 @@ const HomeComponents = () => {
     <main className="bg-[#f5f5f1]">
       <div className="layout">
         <div className="flex flex-col justify-between gap-20 ">
-          <div className="flex flex-col md:flex-row justify-between md:gap-[73px] ">
+          <div className="flex flex-col md:flex-row justify-between gap-8 md:gap-[73px] ">
             <img
               src={newimage}
               alt=""
               className="w-[458px] h-[301px] rounded-2xl object-cover"
             />
-            <div className="flex flex-col gap-11">
+            <div className="flex flex-col gap-11 text-center ">
               <div className="flex flex-col gap-2">
                 <p className="text-orange-400 text-[18px] ">About Us </p>
-                <h1 className=" text-[32px] font-semibold ">
+                <h1 className=" text-[24px] md:text-[32px] font-semibold ">
                   Where Property Meets Simplicity
                 </h1>
-                <p className="text-[18px] text-[#605E5E] font-light">
+                <p className=" text-[14px] md:text-[18px] text-[#605E5E] font-light">
                   We are a modern real estate platform built to simplify the way
                   people buy, rent, and sell properties. Our goal is to remove
                   the stress, confusion, and unnecessary costs often associated
@@ -28,7 +28,7 @@ const HomeComponents = () => {
                   transparent experience for everyone.
                 </p>
               </div>
-              <button className="rounded-lg bg-purple-500 px-6 py-3 w-[143px] cursor-pointer text-white">
+              <button className="rounded-lg mx-auto bg-purple-500 px-6 py-3 w-[143px] cursor-pointer text-white">
                 Learn More
               </button>
             </div>
@@ -42,7 +42,7 @@ const HomeComponents = () => {
               {" "}
               Why Choose Estatery
             </h1>
-            <div className="grid md:grid-cols-3 justify-between gap-6.75 ">
+            <div className="grid md:grid-cols-3 justify-center gap-6.75 ">
               {reasons.map((reason) => {
                 const { id, icons: Icon, title, text } = reason;
                 return (
@@ -65,11 +65,11 @@ const HomeComponents = () => {
               {" "}
               Testimonials
             </p>
-            <h1 className="text-[32px] text-center mb-10 ">
+            <h1 className=" text-[24px] md:text-[32px] text-center mb-10 ">
               {" "}
               What Our Satisfied Clients Says
             </h1>
-            <div className="grid grid-cols-3 justify-between gap-7">
+            <div className="grid md:grid-cols-3 justify-center gap-7">
               {testimonials.map((testimonial) => {
                 const { id, position, image, title, text, line } = testimonial;
                 return (
@@ -97,28 +97,31 @@ const HomeComponents = () => {
           </div>
           <div
             style={{ backgroundImage: `url(${bg})` }}
-            className="bg-cover bg-center bg-no-repeat h-129.5 rounded-[10px] w-full flex items-center justify-center"
+            className=" bg-cover bg-center bg-no-repeat h-129.5 rounded-[10px] w-full flex items-center justify-center"
           >
-            <div className="flex text-white flex-col items-center w-[573px] h-[342px] gap-[31px]   backdrop-blur-2xl border border-white/30 rounded-2xl shadow-lg p-[80px] ">
+            <div className="flex py-10 px-4 text-center text-white flex-col items-center w-[70%] h-[70%] md:w-[573px] md:h-[342px] gap-[31px]   backdrop-blur-2xl border border-white/30 rounded-2xl shadow-lg md:p-[80px] ">
               <div>
-                <h1 className="text-[32px] text-center "> No Spam Promise</h1>
-                <p className=" text-[18px] text-center mt-5 ">
+                <h1 className=" text-[24px] md:text-[32px] text-center ">
+                  {" "}
+                  No Spam Promise
+                </h1>
+                <p className=" text-[14px] md:text-[18px] text-center mt-5 ">
                   Are you a landlord? Discover ways to increase your home's
                   value and get listed.
                 </p>
               </div>
 
-              <div className="flex gap-[23px]">
+              <div className="flex flex-col md:flex-row items-center gap-[23px]">
                 <input
                   type="search"
                   name=""
                   id="search"
-                  className="text-white border border-white px-6 py-3 w-[313px] placeholder-white outline-none  rounded-lg "
+                  className="text-white border border-white px-6 py-3 w-full md:w-[313px] placeholder-white outline-none  rounded-lg "
                   placeholder="Enter your email "
                 />
                 <button
                   id="search"
-                  className="rounded-lg bg-purple-500 px-6 py-3 w-[143px] cursor-pointer text-white"
+                  className="rounded-lg bg-purple-500 px-6 py-3 w-full md:w-[143px] cursor-pointer text-white"
                 >
                   Submit
                 </button>

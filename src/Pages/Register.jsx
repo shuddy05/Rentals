@@ -5,17 +5,15 @@ import image1 from "../assets/images/log1.png";
 import logo from "../assets/images/logo.png";
 
 const Register = () => {
-      // CHANGE 1: Separate states for each password field's visibility
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
-  // CHANGE 2: Added value states so we can compare passwords
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  // CHANGE 3: Derived mismatch flag — only shows error after user types in confirm field
-  const passwordMismatch = confirmPassword.length > 0 && password !== confirmPassword;
-  
+  const passwordMismatch =
+    confirmPassword.length > 0 && password !== confirmPassword;
+
   return (
     <main className=" bg-[#f5f5e8] h-screen  ">
       <div className=" layout  flex flex-col gap-5 md:flex-row justify-between items-center ">
@@ -39,9 +37,6 @@ const Register = () => {
             />
           </div>
 
-          {/* Password */}
-          {/* CHANGE 5: Separated Password and Confirm Password into their own divs — 
-            they were both nested inside one flex-col which broke spacing */}
           <div className="flex flex-col gap-2 mb-4">
             <label className="text-[16px]" htmlFor="password">
               Password <span className="text-red-500 font-bold">*</span>
@@ -65,7 +60,6 @@ const Register = () => {
             </div>
           </div>
 
-          {/* Confirm Password */}
           <div className="flex flex-col gap-2 mb-8">
             <label className="text-[16px]" htmlFor="confirmPassword">
               Confirm Password <span className="text-red-500 font-bold">*</span>
@@ -77,7 +71,6 @@ const Register = () => {
                 placeholder="Re-enter your password"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
-                // CHANGE 6: Border turns red on mismatch
                 className={`w-full h-12 px-4 pr-11 border bg-white rounded-xl text-sm outline-none focus:border-blue-500 ${
                   passwordMismatch ? "border-red-500" : "border-gray-300"
                 }`}
@@ -90,18 +83,12 @@ const Register = () => {
                 {showConfirmPassword ? <EyeOff size={17} /> : <Eye size={17} />}
               </button>
             </div>
-            {/* CHANGE 7: Inline error message on mismatch */}
             {passwordMismatch && (
               <p className="text-red-500 text-[13px]">Passwords do not match</p>
             )}
           </div>
 
-          {/* Sign Up button */}
-          {/* CHANGE 8: Button disabled when passwords don't match */}
-          <button
-            disabled={passwordMismatch || !password || !confirmPassword}
-            className="w-full h-12 bg-blue-600 hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed text-white text-[15px] font-medium rounded-xl"
-          >
+          <button className="w-full h-12 bg-blue-600 hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed text-white text-[15px] font-medium rounded-xl">
             Sign Up
           </button>
 
@@ -118,6 +105,6 @@ const Register = () => {
       </div>
     </main>
   );
-}
+};
 
-export default Register
+export default Register;

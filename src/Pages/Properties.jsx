@@ -267,7 +267,7 @@ const Properties = () => {
                           </div>
 
                           <div className="mt-5 sm:mt-6 flex items-center justify-between">
-                            <Link to="/detail">
+                            <Link to="/detail-properties">
                               <button className="rounded-lg cursor-pointer bg-purple-500 px-4 sm:px-6 py-2 sm:py-3 text-white text-sm sm:text-base">
                                 Details
                               </button>

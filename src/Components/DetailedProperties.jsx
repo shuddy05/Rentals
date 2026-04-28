@@ -83,7 +83,7 @@ const DetailedProperties = () => {
         </div>
 
         <div className="flex flex-col lg:flex-row  justify-between mt-5 ">
-          <div className="grid grid-cols-2  md:grid-cols-5 gap-4 md:gap-16 ">
+          <div className="grid grid-cols-2  md:grid-cols-5 gap-4 justify-between ">
             <div className="text-[18px] flex flex-col gap-1">
               <h1>Bedrooms</h1>
               <p className="flex items-center gap-2">
@@ -91,6 +91,7 @@ const DetailedProperties = () => {
                 <MdOutlineBedroomChild /> 03
               </p>
             </div>
+
             <div className="text-[18px] flex flex-col gap-1">
               <h1>Bathrooms</h1>
               <p className="flex items-center gap-2">

@@ -99,7 +99,7 @@ const Register = () => {
           </Link>
         </div>
 
-        <div className="  shadow-md">
+        <div className=" mt-5  shadow-md">
           <img src={image1} alt="Interior" className="" />
         </div>
       </div>

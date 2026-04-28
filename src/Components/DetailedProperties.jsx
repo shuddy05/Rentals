@@ -14,6 +14,7 @@ import agentImg from "../assets/images/newpass.jpg";
 import propertyImg from "../assets/images/2.jpg";
 import { properties } from "../utils/properties";
 import { PiBedBold, PiBathtubBold } from "react-icons/pi";
+import map from "../assets/images/Map.png";
 const DetailedProperties = () => {
   const features = [
     "Decent Detailed Finishing",
@@ -126,9 +127,7 @@ const DetailedProperties = () => {
 
         <section className="max-w-7xl mx-auto px-4 py-10">
           <div className="flex flex-col lg:flex-row gap-8">
-            {/* ── LEFT COLUMN ── */}
             <div className="flex-1 flex flex-col gap-6">
-              {/* About */}
               <div className="rounded-2xl  p-6">
                 <h2 className="text-lg font-bold text-gray-900 mb-3">
                   About this property
@@ -141,7 +140,6 @@ const DetailedProperties = () => {
                 </p>
               </div>
 
-              {/* Property Features */}
               <div className="rounded-2xl  p-6">
                 <h2 className="text-lg font-bold text-gray-900 mb-5">
                   Property Features
@@ -149,38 +147,36 @@ const DetailedProperties = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
                   {features.map((feat, i) => (
                     <div key={i} className="flex items-center gap-3">
-                      <BsCheckSquareFill className="text-[#7065F0] w-5 h-5 flex-shrink-0" />
+                      <BsCheckSquareFill className="text-[#7065F0] w-5 h-5 " />
                       <span className="text-gray-700 text-[15px]">{feat}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              {/* Location */}
               <div className="rounded-2xl  p-6">
                 <h2 className="text-lg font-bold text-gray-900 mb-5">
                   Location
                 </h2>
                 <div className="relative w-full h-72 rounded-2xl overflow-hidden border border-gray-200">
-                  <iframe
-                    title="Property Location"
-                    src="https://www.openstreetmap.org/export/embed.html?bbox=2.8%2C6.3%2C3.6%2C6.9&layer=mapnik&marker=6.6%2C3.15"
-                    className="w-full h-full border-0"
-                    loading="lazy"
+                  <img
+                    src={map}
+                    alt=""
+                    className="w-full h-full object-cover "
                   />
-                  {/* Popup card */}
-                  <div className="absolute bottom-4 left-4 bg-white rounded-2xl shadow-lg flex items-center gap-3 p-3 max-w-[210px]">
+
+                  <div className="absolute top-1/2 right-1/2 bg-white rounded-2xl shadow-lg flex items-center gap-3 p-3 max-w-[210px]">
                     <img
                       src={propertyImg}
-                      alt="Modern Villa"
-                      className="w-14 h-14 rounded-xl object-cover flex-shrink-0"
+                      alt=""
+                      className="w-14 h-14 rounded-xl object-cover "
                     />
                     <div>
                       <p className="font-semibold text-gray-900 text-sm">
                         Modern Villa
                       </p>
                       <div className="flex items-center gap-1 mt-1">
-                        <FiMapPin className="text-[#7065F0] w-3 h-3 flex-shrink-0" />
+                        <FiMapPin className="text-[#7065F0] w-3 h-3 " />
                         <p className="text-xs text-gray-500">
                           Badagry, Ogun Nigeria
                         </p>
@@ -191,9 +187,7 @@ const DetailedProperties = () => {
               </div>
             </div>
 
-            {/* ── RIGHT COLUMN ── */}
             <div className="lg:w-[340px] flex flex-col gap-6">
-              {/* Agent Card */}
               <div className="rounded-2xl border border-gray-200 bg-white shadow-sm p-6">
                 <h2 className="text-lg font-bold text-gray-900 mb-5">
                   Agent Detail
@@ -206,7 +200,7 @@ const DetailedProperties = () => {
                   />
                   <div>
                     <p className="font-semibold text-gray-900 text-[15px]">
-                      Janet Jackson
+                      Ibrahim Moshood
                     </p>
                     <p className="text-sm text-gray-500">Real Estate Agent</p>
                   </div>
@@ -217,65 +211,49 @@ const DetailedProperties = () => {
                 </button>
               </div>
 
-              {/* Schedule a Tour */}
               <div className="rounded-2xl border border-gray-200 bg-white shadow-sm p-6">
                 <h2 className="text-lg font-bold text-gray-900 mb-5">
                   Schedule a Tour
                 </h2>
 
-                {/* Toggle */}
                 <div className="flex gap-3 mb-5">
-                  <button className="flex-1 py-2.5 rounded-xl font-semibold text-sm bg-[#7065F0] text-white">
+                  <button className="flex-1 py-2.5 rounded-lg font-semibold text-sm bg-[#7065F0] text-white">
                     In Person
                   </button>
-                  <button className="flex-1 py-2.5 rounded-xl font-semibold text-sm border border-[#7065F0] text-[#7065F0] bg-white">
+                  <button className="flex-1 py-2.5 rounded-lg font-semibold text-sm border border-[#7065F0] text-[#7065F0] bg-white">
                     Virtual
                   </button>
                 </div>
 
                 <div className="flex flex-col gap-4">
-                  {/* Date */}
                   <div className="relative">
                     <input
-                      type="text"
-                      placeholder="dd/mm/yy"
-                      readOnly
+                      type="date"
                       className="w-full h-12 px-4 pr-10 rounded-xl border border-gray-200 bg-white text-gray-400 text-sm placeholder-gray-400 focus:outline-none"
                     />
-                    <FiCalendar className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
                   </div>
 
-                  {/* Time */}
                   <div className="relative">
                     <input
-                      type="text"
-                      placeholder="--:-- --"
-                      readOnly
+                      type="time"
                       className="w-full h-12 px-4 pr-10 rounded-xl border border-gray-200 bg-white text-gray-400 text-sm placeholder-gray-400 focus:outline-none"
                     />
-                    <FiClock className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
                   </div>
 
-                  {/* Name */}
                   <input
                     type="text"
                     placeholder="Name"
-                    readOnly
                     className="w-full h-12 px-4 rounded-xl border border-gray-200 bg-white text-gray-400 text-sm placeholder-gray-400 focus:outline-none"
                   />
 
-                  {/* Email */}
                   <input
                     type="text"
                     placeholder="Email"
-                    readOnly
                     className="w-full h-12 px-4 rounded-xl border border-gray-200 bg-white text-gray-400 text-sm placeholder-gray-400 focus:outline-none"
                   />
 
-                  {/* Message */}
                   <textarea
                     placeholder="Message"
-                    readOnly
                     rows={4}
                     className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-gray-400 text-sm placeholder-gray-400 focus:outline-none resize-none"
                   />
@@ -298,7 +276,7 @@ const DetailedProperties = () => {
               return (
                 <div key={id} className="">
                   <div className="rounded-[10px] border border-[#D9D9D9] bg-white shadow-xl overflow-hidden">
-                    <div className="relative ">
+                    <div className="relative h-64 ">
                       <button
                         className={`absolute top-4 left-4 rounded-full px-4 py-2 text-white ${
                           status === "For Sale"

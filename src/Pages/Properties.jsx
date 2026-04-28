@@ -6,7 +6,6 @@ import circle from "../assets/images/WarningCircle.png";
 import ErrorImg from "../assets/images/Frame.png";
 import { Link } from "react-router-dom";
 
-
 const NoMatchFound = ({ onClear }) => (
   <div className="flex flex-col items-center justify-center py-16 px-6">
     <img src={ErrorImg} alt="" className="w-40 sm:w-auto" />
@@ -184,9 +183,7 @@ const Properties = () => {
           </div>
         </div>
 
-        {/* Properties Section */}
         <div className="layout flex flex-col gap-8 md:gap-11 py-6 md:py-0">
-          {/* Header + Filter Tabs */}
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <h1 className="text-2xl sm:text-[32px] font-semibold">
               Featured Properties
@@ -209,7 +206,6 @@ const Properties = () => {
             </div>
           </div>
 
-          {/* Empty State or Property Grid */}
           {noResults ? (
             <NoMatchFound onClear={handleClearFilters} />
           ) : (
@@ -271,10 +267,10 @@ const Properties = () => {
                           </div>
 
                           <div className="mt-5 sm:mt-6 flex items-center justify-between">
-                            <Link to="/detail" >
-                                                <button className="rounded-lg cursor-pointer bg-purple-500 px-4 sm:px-6 py-2 sm:py-3 text-white text-sm sm:text-base">
-                              Details
-                            </button>
+                            <Link to="/detail">
+                              <button className="rounded-lg cursor-pointer bg-purple-500 px-4 sm:px-6 py-2 sm:py-3 text-white text-sm sm:text-base">
+                                Details
+                              </button>
                             </Link>
                             <h3 className="text-xl sm:text-2xl font-bold">
                               ₦{price}
@@ -287,7 +283,6 @@ const Properties = () => {
                 })}
               </div>
 
-              {/* Pagination */}
               <div className="w-full bg-white rounded-2xl border border-gray-200 px-4 sm:px-6 py-3 sm:py-4 shadow-sm">
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                   <p className="text-gray-500 text-sm text-center sm:text-left">

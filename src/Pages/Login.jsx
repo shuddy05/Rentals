@@ -9,7 +9,7 @@ const Login = () => {
 
   return (
     <main className=" bg-[#f5f5e8] h-screen  ">
-      <div className=" layout  flex flex-col md:flex-row justify-between items-center ">
+      <div className=" layout  flex flex-col gap-5 md:flex-row justify-between items-center ">
         <div className=" w-full md:max-w-113.25 md:max-h-149.5 ">
 
           <h1 className="text-[32px] font-bold">Login</h1>

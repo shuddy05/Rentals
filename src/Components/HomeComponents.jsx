@@ -14,7 +14,7 @@ const HomeComponents = () => {
               alt=""
               className="w-full md:w-[458px] h-[301px] rounded-2xl object-cover"
             />
-            <div className="flex flex-col gap-11 text-center ">
+            <div className="flex flex-col gap-11 text-center md:text-left ">
               <div className="flex flex-col gap-2">
                 <p className="text-orange-400 text-[18px] ">About Us </p>
                 <h1 className=" text-[24px] md:text-[32px] font-semibold ">
@@ -28,7 +28,7 @@ const HomeComponents = () => {
                   transparent experience for everyone.
                 </p>
               </div>
-              <button className="rounded-lg mx-auto bg-purple-500 px-6 py-3 w-[143px] cursor-pointer text-white">
+              <button className="rounded-lg mx-auto md:mx-0 bg-purple-500 px-6 py-3 w-[143px] cursor-pointer text-white">
                 Learn More
               </button>
             </div>

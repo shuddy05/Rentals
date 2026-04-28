@@ -129,7 +129,7 @@ const DetailedProperties = () => {
             {/* ── LEFT COLUMN ── */}
             <div className="flex-1 flex flex-col gap-6">
               {/* About */}
-              <div className="rounded-2xl border border-dashed border-[#7065F0] p-6">
+              <div className="rounded-2xl  p-6">
                 <h2 className="text-lg font-bold text-gray-900 mb-3">
                   About this property
                 </h2>
@@ -142,7 +142,7 @@ const DetailedProperties = () => {
               </div>
 
               {/* Property Features */}
-              <div className="rounded-2xl border border-dashed border-[#7065F0] p-6">
+              <div className="rounded-2xl  p-6">
                 <h2 className="text-lg font-bold text-gray-900 mb-5">
                   Property Features
                 </h2>
@@ -157,7 +157,7 @@ const DetailedProperties = () => {
               </div>
 
               {/* Location */}
-              <div className="rounded-2xl border border-dashed border-[#7065F0] p-6">
+              <div className="rounded-2xl  p-6">
                 <h2 className="text-lg font-bold text-gray-900 mb-5">
                   Location
                 </h2>
@@ -296,7 +296,7 @@ const DetailedProperties = () => {
                 property;
 
               return (
-                <div key={id} className="w-full">
+                <div key={id} className="">
                   <div className="rounded-[10px] border border-[#D9D9D9] bg-white shadow-xl overflow-hidden">
                     <div className="relative ">
                       <button

@@ -4,6 +4,8 @@ import { FaRegHeart } from "react-icons/fa6";
 import { PiBedBold, PiBathtubBold } from "react-icons/pi";
 import circle from "../assets/images/WarningCircle.png";
 import ErrorImg from "../assets/images/Frame.png";
+import { Link } from "react-router-dom";
+
 
 const NoMatchFound = ({ onClear }) => (
   <div className="flex flex-col items-center justify-center py-16 px-6">
@@ -269,9 +271,11 @@ const Properties = () => {
                           </div>
 
                           <div className="mt-5 sm:mt-6 flex items-center justify-between">
-                            <button className="rounded-lg bg-purple-500 px-4 sm:px-6 py-2 sm:py-3 text-white text-sm sm:text-base">
+                            <Link to="/detail" >
+                                                <button className="rounded-lg cursor-pointer bg-purple-500 px-4 sm:px-6 py-2 sm:py-3 text-white text-sm sm:text-base">
                               Details
                             </button>
+                            </Link>
                             <h3 className="text-xl sm:text-2xl font-bold">
                               ₦{price}
                             </h3>

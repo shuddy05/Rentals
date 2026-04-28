@@ -12,7 +12,7 @@ const HomeComponents = () => {
             <img
               src={newimage}
               alt=""
-              className="min-w-full md:w-[458px] h-[301px] rounded-2xl object-cover"
+              className="w-full md:w-[458px] h-[301px] rounded-2xl object-cover"
             />
             <div className="flex flex-col gap-11 text-center ">
               <div className="flex flex-col gap-2">

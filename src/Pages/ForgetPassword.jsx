@@ -5,8 +5,6 @@ import image1 from "../assets/images/log1.png";
 import logo from "../assets/images/logo.png";
 
 const ForgetPassword = () => {
-  const [showPassword, setShowPassword] = useState(false);
-
   return (
     <main className=" bg-[#f5f5e8] h-screen  ">
       <div className=" layout  flex flex-col gap-5 md:flex-row justify-between items-center ">

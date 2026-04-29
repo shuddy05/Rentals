@@ -126,9 +126,9 @@ const DetailedProperties = () => {
           </div>
         </div>
 
-        <section className="max-w-7xl mx-auto px-4 py-10">
+        <section className="max-w-7xl  px-4 py-10 mx-auto">
           <div className="flex flex-col lg:flex-row gap-8">
-            <div className="flex-1 flex flex-col gap-6">
+            <div className=" flex flex-col gap-6">
               <div className="rounded-2xl  p-6">
                 <h2 className="text-lg font-bold text-gray-900 mb-3">
                   About this property

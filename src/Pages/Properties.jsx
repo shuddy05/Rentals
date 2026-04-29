@@ -32,72 +32,7 @@ const NoMatchFound = ({ onClear }) => (
 
 const Properties = () => {
   const [activeFilter, setActiveFilter] = useState("All");
-  const [currentPage, setCurrentPage] = useState(1);
-
-  const [searchInputs, setSearchInputs] = useState({
-    propertyType: "Apartment",
-    budget: "",
-    location: "Lagos",
-  });
-
-  const [appliedSearch, setAppliedSearch] = useState(null);
-
-  const propertiesPerPage = 9;
-
-  const tabFiltered =
-    activeFilter === "All"
-      ? properties
-      : properties.filter((p) => p.status === activeFilter);
-
-  const filteredProperties = appliedSearch
-    ? tabFiltered.filter((p) => {
-        const matchType = appliedSearch.propertyType
-          ? p.type?.toLowerCase() === appliedSearch.propertyType.toLowerCase()
-          : true;
-
-        const matchBudget = appliedSearch.budget
-          ? p.price <= Number(appliedSearch.budget)
-          : true;
-
-        const matchLocation = appliedSearch.location
-          ? p.location
-              ?.toLowerCase()
-              .includes(appliedSearch.location.toLowerCase())
-          : true;
-
-        return matchType && matchBudget && matchLocation;
-      })
-    : tabFiltered;
-
-  const totalPages = Math.ceil(filteredProperties.length / propertiesPerPage);
-  const startIndex = (currentPage - 1) * propertiesPerPage;
-  const currentProperties = filteredProperties.slice(
-    startIndex,
-    startIndex + propertiesPerPage,
-  );
-
-  const handleFilter = (filter) => {
-    setActiveFilter(filter);
-    setCurrentPage(1);
-  };
-
-  const handleSearch = () => {
-    setAppliedSearch({ ...searchInputs });
-    setCurrentPage(1);
-  };
-
-  const handleClearFilters = () => {
-    setAppliedSearch(null);
-    setActiveFilter("All");
-    setCurrentPage(1);
-    setSearchInputs({
-      propertyType: "Apartment",
-      budget: "",
-      location: "Lagos",
-    });
-  };
-
-  const noResults = currentProperties.length === 0;
+  const [showNoMatch, setShowNoMatch] = useState(false);
 
   return (
     <main>
@@ -117,16 +52,7 @@ const Properties = () => {
                 <label className="block text-gray-800 font-semibold text-sm sm:text-base mb-1">
                   Property Type
                 </label>
-                <select
-                  value={searchInputs.propertyType}
-                  onChange={(e) =>
-                    setSearchInputs((prev) => ({
-                      ...prev,
-                      propertyType: e.target.value,
-                    }))
-                  }
-                  className="w-full h-11 sm:h-12 px-4 rounded-xl border border-gray-200 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm sm:text-base"
-                >
+                <select className="w-full h-11 sm:h-12 px-4 rounded-xl border border-gray-200 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm sm:text-base">
                   <option>Apartment</option>
                   <option>House</option>
                   <option>Villa</option>
@@ -141,13 +67,6 @@ const Properties = () => {
                 <input
                   type="number"
                   placeholder="Enter Budget"
-                  value={searchInputs.budget}
-                  onChange={(e) =>
-                    setSearchInputs((prev) => ({
-                      ...prev,
-                      budget: e.target.value,
-                    }))
-                  }
                   className="w-full h-11 sm:h-12 px-4 rounded-xl border border-gray-200 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm sm:text-base"
                 />
               </div>
@@ -156,16 +75,7 @@ const Properties = () => {
                 <label className="block text-gray-800 font-semibold text-sm sm:text-base mb-1">
                   Location
                 </label>
-                <select
-                  value={searchInputs.location}
-                  onChange={(e) =>
-                    setSearchInputs((prev) => ({
-                      ...prev,
-                      location: e.target.value,
-                    }))
-                  }
-                  className="w-full h-11 sm:h-12 px-4 rounded-xl border border-gray-200 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm sm:text-base"
-                >
+                <select className="w-full h-11 sm:h-12 px-4 rounded-xl border border-gray-200 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm sm:text-base">
                   <option>Lagos</option>
                   <option>Abuja</option>
                   <option>Port Harcourt</option>
@@ -174,7 +84,7 @@ const Properties = () => {
               </div>
 
               <button
-                onClick={handleSearch}
+                onClick={() => setShowNoMatch(true)}
                 className="h-11 sm:h-12 w-full sm:col-span-2 md:col-span-1 cursor-pointer rounded-xl bg-indigo-600 text-white font-semibold text-sm sm:text-base hover:bg-indigo-700 transition-colors"
               >
                 Search For Property
@@ -193,7 +103,7 @@ const Properties = () => {
               {["All", "For Rent", "For Sale"].map((filter) => (
                 <button
                   key={filter}
-                  onClick={() => handleFilter(filter)}
+                  onClick={() => setActiveFilter(filter)}
                   className={`text-sm sm:text-[18px] px-3 sm:px-4 py-2 cursor-pointer flex-1 sm:flex-none sm:w-[119px] rounded-lg ${
                     activeFilter === filter
                       ? "text-white bg-[#7065F0]"
@@ -206,12 +116,12 @@ const Properties = () => {
             </div>
           </div>
 
-          {noResults ? (
-            <NoMatchFound onClear={handleClearFilters} />
+          {showNoMatch ? (
+            <NoMatchFound onClear={() => setShowNoMatch(false)} />
           ) : (
             <>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                {currentProperties.map((property) => {
+                {properties.map((property) => {
                   const { id, image, name, location, price, feature, status } =
                     property;
 
@@ -286,48 +196,25 @@ const Properties = () => {
               <div className="w-full bg-white rounded-2xl border border-gray-200 px-4 sm:px-6 py-3 sm:py-4 shadow-sm">
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                   <p className="text-gray-500 text-sm text-center sm:text-left">
-                    Showing {currentProperties.length} of{" "}
-                    {filteredProperties.length}
+                    Showing {properties.length} of {properties.length}
                   </p>
 
                   <div className="flex items-center justify-center sm:justify-end gap-4 sm:gap-6">
                     <span className="text-gray-800 font-medium text-sm sm:text-base whitespace-nowrap">
-                      Page {currentPage} of {totalPages}
+                      Page 1 of 1
                     </span>
 
                     <div className="flex items-center gap-1 sm:gap-2">
-                      <button
-                        onClick={() => setCurrentPage(1)}
-                        disabled={currentPage === 1}
-                        className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-lg text-gray-400 disabled:opacity-50"
-                      >
+                      <button className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-lg text-gray-400">
                         «
                       </button>
-                      <button
-                        onClick={() =>
-                          setCurrentPage((prev) => Math.max(prev - 1, 1))
-                        }
-                        disabled={currentPage === 1}
-                        className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-lg text-gray-400 disabled:opacity-50"
-                      >
+                      <button className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-lg text-gray-400">
                         ‹
                       </button>
-                      <button
-                        onClick={() =>
-                          setCurrentPage((prev) =>
-                            Math.min(prev + 1, totalPages),
-                          )
-                        }
-                        disabled={currentPage === totalPages}
-                        className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-lg text-gray-700 disabled:opacity-50"
-                      >
+                      <button className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-lg text-gray-700">
                         ›
                       </button>
-                      <button
-                        onClick={() => setCurrentPage(totalPages)}
-                        disabled={currentPage === totalPages}
-                        className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-lg text-gray-700 disabled:opacity-50"
-                      >
+                      <button className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-lg text-gray-700">
                         »
                       </button>
                     </div>
